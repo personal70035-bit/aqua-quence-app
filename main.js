@@ -4,10 +4,14 @@ function App() {
     const [jars, setJars] = useState(1);
 
     // YOU NEED THIS PART FOR THE BUTTON TO WORK:
-    const handleCall = () => {
-        alert("Success! Aqua Quence is now listening.");
+    const handleCall = async () => {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            alert("Microphone connected! Now Gemini AI will hear you.");
+        } catch (err) {
+            alert("Please allow Microphone access in your browser settings.");
+        }
     };
-
     return (
         <div style={{ textAlign: 'center', padding: '50px' }}>
             <h1 style={{ color: '#00ccff' }}>Aqua Quence</h1>
