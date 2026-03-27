@@ -217,11 +217,12 @@ Persona: Professional, helpful, and locally aware. You sound like a friendly nei
                         }
                     }
                 });
-            } catch (err) {
-                showError(err.message);
-                isConnecting = false;
-                updateCallUI();
-            }
+            } catch (error) {
+        console.error("Gemini Connection Error:", error);
+        showError("AI Connection Failed: " + (error.message || "Unknown Error"));
+        isConnecting = false;
+        updateCallUI();
+    }
         }
 
         function disconnect() {
