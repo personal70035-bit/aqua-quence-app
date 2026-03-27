@@ -262,7 +262,7 @@ Persona: Professional, helpful, and locally aware. You sound like a friendly nei
                 source.connect(processor);
                 processor.connect(audioContext.destination);
             } catch (err) {
-                showError("Microphone access denied.");
+                showError("Error: " + error.message);
                 disconnect();
             }
         }
