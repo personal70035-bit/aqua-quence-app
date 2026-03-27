@@ -1,57 +1,46 @@
-const { useState, useEffect } = React;
+const { useState } = React;
 
 function App() {
     const [jars, setJars] = useState(1);
-    const [status, setStatus] = useState("Ready");
 
-    const handleCall = () => {
-        setStatus("Listening...");
-        // This triggers the browser microphone
-        navigator.mediaDevices.getUserMedia({ audio: true })
-            .then(() => {
-                alert("AI is listening! (This is where Gemini connects)");
-                setStatus("Ready");
-            })
-            .catch(err => {
-                alert("Please allow microphone access to use Voice.");
-                setStatus("Ready");
-            });
+    // This makes the button actually DO something when clicked
+    const handleButtonClick = () => {
+        alert("Success! Aqua Quence is listening for your order.");
+        // This will eventually trigger the Gemini AI
     };
 
     return (
-        <div style={{ textAlign: 'center', padding: '50px', backgroundColor: '#0a0502', minHeight: '100vh', color: 'white' }}>
+        <div style={{ textAlign: 'center', padding: '50px', background: '#0a0502', minHeight: '100vh', color: 'white', fontFamily: 'sans-serif' }}>
             <h1 style={{ color: '#00ccff' }}>Aqua Quence</h1>
-            <p style={{ color: '#888' }}>Indiversa Water - Maheshtala</p>
-
+            <p style={{ color: '#888' }}>Maheshtala Water Delivery</p>
+            
+            {/* BIG BLUE BUTTON */}
             <div 
-                onClick={handleCall}
-                style={{
-                    width: '200px', height: '200px', borderRadius: '50%',
-                    backgroundColor: '#00ccff', margin: '40px auto',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    cursor: 'pointer', boxShadow: '0 0 30px #00ccff',
-                    transition: 'transform 0.2s'
+                onClick={handleButtonClick}
+                style={{ 
+                    margin: '40px auto', width: '180px', height: '180px', borderRadius: '50%', 
+                    background: '#00ccff', display: 'flex', alignItems: 'center', 
+                    justifyContent: 'center', cursor: 'pointer', boxShadow: '0 0 20px #00ccff' 
                 }}
-                onMouseDown={(e) => e.currentTarget.style.transform = 'scale(0.9)'}
-                onMouseUp={(e) => e.currentTarget.style.transform = 'scale(1)'}
             >
-                <b style={{ color: 'black', fontSize: '20px' }}>{status === "Ready" ? "CALL AQUA" : "..."}</b>
+                <span style={{ fontSize: '20px', fontWeight: 'bold', color: 'black' }}>CALL AQUA</span>
             </div>
 
-            <div style={{ background: '#1a1a1a', padding: '20px', borderRadius: '15px', display: 'inline-block' }}>
+            <div style={{ background: '#1a1a1a', padding: '20px', borderRadius: '12px', display: 'inline-block' }}>
                 <h2 style={{ margin: '0 0 10px 0' }}>Order: {jars} Jars</h2>
                 <button 
                     onClick={() => setJars(jars + 1)}
-                    style={{ background: '#00ccff', color: 'black', border: 'none', padding: '10px 25px', borderRadius: '5px', fontWeight: 'bold', cursor: 'pointer' }}
+                    style={{ background: '#00ccff', color: 'black', border: 'none', padding: '10px 20px', borderRadius: '5px', fontSize: '16px', fontWeight: 'bold', cursor: 'pointer' }}
                 >
                     + Add Jar
                 </button>
             </div>
             
-            <p style={{ marginTop: '50px', color: '#444' }}>Owner: Anisul Alam</p>
+            <p style={{ marginTop: '40px', color: '#444' }}>Owner: Anisul Alam</p>
         </div>
     );
 }
 
+// This connects the code to the "root" div in your index.html
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
