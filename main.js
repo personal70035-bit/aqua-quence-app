@@ -3,8 +3,9 @@ const { useState } = React;
 function App() {
     const [jars, setJars] = useState(1);
 
+    // YOU NEED THIS PART FOR THE BUTTON TO WORK:
     const handleCall = () => {
-        alert("Success! Aqua Quence AI is now connected.");
+        alert("Success! Aqua Quence is now listening.");
     };
 
     return (
