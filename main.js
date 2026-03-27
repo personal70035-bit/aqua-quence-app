@@ -167,7 +167,7 @@ Persona: Professional, helpful, and locally aware. You sound like a friendly nei
                 audioContext = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 16000 });
                 
                 const sessionPromise = ai.live.connect({
-                    model: "model: "gemini-1.5-flash",
+                    model: "models/gemini-1.5-flash",
                     config: {
                         systemInstruction: SYSTEM_INSTRUCTION,
                         responseModalities: ["AUDIO"],
