@@ -169,8 +169,8 @@ Persona: Professional, helpful, and locally aware. You sound like a friendly nei
                 const sessionPromise = ai.live.connect({
                     model: "models/gemini-1.5-flash",
                     config: {
-                        systemInstruction: SYSTEM_INSTRUCTION,
-                        responseModalities: ["AUDIO"],
+        systemInstruction: { parts: [{ text: SYSTEM_INSTRUCTION }] },
+        responseModalities: ["AUDIO"],
                         speechConfig: {
                             voiceConfig: { prebuiltVoiceConfig: { voiceName: "Zephyr" } },
                         },
