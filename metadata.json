@@ -1,0 +1,5 @@
+{
+  "name": "Aqua Quence Voice Assistant",
+  "description": "Real-time AI voice assistant for Aqua Quence By Indiversa Water, providing water jar delivery services in Maheshtala.",
+  "requestFramePermissions": ["microphone"]
+}
