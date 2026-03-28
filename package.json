@@ -4,12 +4,14 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --port 3000 --host 0.0.0.0",
+    "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "lint": "echo 'No linting needed for vanilla JS'"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0"
   },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
 }
