@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "lint": "echo 'No linting needed for vanilla JS'"
   },
-  "devDependencies": {
-    "vite": "^6.2.0"
-  }
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0"
+  },
 }
